@@ -34,9 +34,13 @@ const basePlugins = [
 
 const baseOutput = [
     {
-        file: pkg.main,
+        file: pkg.module,
         format: 'esm',
-    }, //前端使用时需要cjs转译
+    },
+    {
+        file: pkg.main,
+        format: 'cjs'
+    }
 ]
 
 const baseConfig = {
