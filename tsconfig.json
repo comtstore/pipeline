@@ -1,0 +1,35 @@
+{
+    "include":[
+      "./src/*"  
+    ],
+    "compilerOptions": {
+      "declaration": true,
+      "baseUrl": "./",
+      "target": "ES2018",
+      "module": "ESNext",
+      "experimentalDecorators": true,
+      "useDefineForClassFields": true,
+      "moduleResolution": "node",
+      "allowJs": false,
+      "checkJs": false,
+      "removeComments": false,
+      "noEmit": false,
+      "noEmitOnError": false,
+      "sourceMap": true,
+      "strict": false,
+      "alwaysStrict": false,
+      "noImplicitAny": false,
+      "noImplicitThis": false,
+      "strictNullChecks": true,
+      "strictBindCallApply": false,
+      "strictFunctionTypes": false,
+      "strictPropertyInitialization": false,
+      "noFallthroughCasesInSwitch": false,
+      "noImplicitReturns": false,
+      "noUnusedLocals": false,
+      "esModuleInterop": true,
+      "noUnusedParameters": true,
+      "allowUnreachableCode": false,
+      "allowSyntheticDefaultImports": true
+  }
+}

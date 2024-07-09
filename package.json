@@ -1,0 +1,45 @@
+{
+  "name": "@comtstore/pipeline",
+  "version": "1.0.0",
+  "description": "一种类koa的管线型的流程控制器",
+  "main": "./dist/index.esm.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "cross-env NODE_ENV=production && yarn clean && node --experimental-json-modules ./node_modules/.bin/rollup --config  ./build/rollup.config.prod.js",
+    "clean": "rimraf ./dist",
+    "pub": "npm publish --access public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/comtstore/pipeline.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/comtstore/pipeline/issues"
+  },
+  "homepage": "https://github.com/comtstore/pipeline#readme",
+  "devDependencies": {
+    "@babel/preset-env": "^7.24.7",
+    "@babel/preset-typescript": "^7.24.7",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-commonjs": "^26.0.1",
+    "@rollup/plugin-eslint": "^9.0.5",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@typescript-eslint/eslint-plugin": "^7.15.0",
+    "@typescript-eslint/parser": "^7.15.0",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.57.0",
+    "rimraf": "^5.0.8",
+    "rollup": "^4.18.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-typescript2": "^0.36.0",
+    "typescript": "^5.5.3"
+  },
+  "dependencies": {
+    "@comtstore/event-emitter": "^1.0.3",
+    "http-errors": "^2.0.0"
+  }
+}
