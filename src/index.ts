@@ -125,6 +125,23 @@ class Pipeline extends EventEmitter {
     }
 
     /**
+     * 条件中间件，只有当condition条件满足时，才会执行，否则直接执行下一个中间件
+     * @param condition 
+     * @param middleware 
+     */
+    public conditionalUse (
+      condition: (ctx, pl: Pipeline) => boolean, 
+      middleware: (ctx, next, pl: Pipeline) => void | Promise<void>) {
+        return this.use(async (ctx, next, pl: Pipeline) => {
+          if(condition(ctx, pl)){
+            await middleware(ctx, next, pl)
+          } else {
+            await next()
+          }
+        })
+    }
+
+    /**
      * 添加流中间件列表
      * @param middlewares
      * @returns
