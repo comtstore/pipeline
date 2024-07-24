@@ -1,6 +1,6 @@
 {
   "name": "@comtstore/pipeline",
-  "version": "1.0.4",
+  "version": "1.0.6",
   "description": "一种类koa的管线型的流程控制器",
   "main": "./dist/index.cjs",
   "module": "./dist/index.esm.js",

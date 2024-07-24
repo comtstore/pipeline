@@ -102,9 +102,9 @@ class Pipeline extends EventEmitter {
           const cb = () => {
             this.off('resolved', cb)
             this.off('rejected', cb)
-            if (this.status === 'resolved') {
+            if (this.status === 'rejected') {
               reject(this.ctx.ep)
-            } else if (this.status === 'rejected') {
+            } else if (this.status === 'resolved') {
               resolve(this.ctx.op)
             }
           }
