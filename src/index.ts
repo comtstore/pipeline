@@ -183,18 +183,27 @@ class Pipeline extends EventEmitter {
      * @param index 当前执行的阶段，默认为0，表示第一个阶段
      */
     public async execute (index: number = 0) {
-      if (index >= this.middlewares.length) return
+      // 当前已经执行完了所有中间件，状态移动到resolved
+      if (index >= this.middlewares.length){
+        this.moveStatus('resolved')
+        return
+      }
+      // 当前执行第一个中间件，状态移动到initial
       if (index === 0) {
         this.moveStatus('initial')
       }
       const currentMiddleware = this.middlewares[index]
+      // 表示next函数是否执行，用于说明当前是否是最后一个中间件
+      let isNextExecuted: boolean = false
       const next = async () => {
         await this.execute(index + 1)
+        isNextExecuted = true
       }
       try {
         this.moveStatus('pending')
         await currentMiddleware(this.ctx, next, this)
-        if (index === this.middlewares.length - 1) {
+        // next函数没有执行，说明当前中间件已经是本次中间件链条的最后一个，状态移到resolved
+        if(!isNextExecuted){
           this.moveStatus('resolved')
         }
       } catch (err) {
